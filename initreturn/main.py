@@ -52,7 +52,9 @@ def get_usuario_por_email(email_usuario: str):
 # Rota para inserir usuario
 @app.post("/usuarios")
 def inserir_usuario(usuario: Users):
-    base_de_dados.append(usuario)
+    for usuarios in base_de_dados.append(usuario):
+        if (usuarios.id == usuario):
+            return {"Status": 200, "Usuario": "adiciona com sucesso"}
     return usuario
 
 # Rota de deletar usuario
@@ -62,8 +64,8 @@ def deletar_usuario(id_usuario: int):
     for usuario in base_de_dados:
         if (usuario.id == id_usuario):
             base_de_dados.remove(usuario)
-            return {"Status": "Usuario removido com sucesso"}
-    return {"Status": "Usuario não encontrado"}
+            return {"Status": 200, "Usuario": "removido com sucesso"}
+    return {"Status": "Usuario não criado"}
 
 # rota de atualizar usuario
 @app.put("/usuarios/{id}")
