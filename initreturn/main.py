@@ -54,3 +54,22 @@ def get_usuario_por_email(email_usuario: str):
 def inserir_usuario(usuario: Users):
     base_de_dados.append(usuario)
     return usuario
+
+# Rota de deletar usuario
+
+@app.delete("/usuarios/{id}")
+def deletar_usuario(id_usuario: int):
+    for usuario in base_de_dados:
+        if (usuario.id == id_usuario):
+            base_de_dados.remove(usuario)
+            return {"Status": "Usuario removido com sucesso"}
+    return {"Status": "Usuario não encontrado"}
+
+# rota de atualizar usuario
+@app.put("/usuarios/{id}")
+async def atualizar_usuario(id_usuario: int, usuario: Users):
+    atualizar_usuario = get_usuario_por_id(id_usuario)
+    if atualizar_usuario:
+        atualizar_usuario.email = usuario.email
+        atualizar_usuario.password = usuario.password
+        return atualizar_usuario
