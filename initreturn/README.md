@@ -5,10 +5,10 @@ This repository creates, reads and queries data directly from a database, in add
 
 # Used Libs
 
-´´´
+```
 pip install uvicorn
-´´´
+```
 
-´´´
+```
 pip install fastapi
-´´´
+```
