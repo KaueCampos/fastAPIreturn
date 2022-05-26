@@ -75,3 +75,4 @@ async def atualizar_usuario(id_usuario: int, usuario: Users):
         atualizar_usuario.email = usuario.email
         atualizar_usuario.password = usuario.password
         return atualizar_usuario
+
